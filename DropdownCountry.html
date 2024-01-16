@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location Selection</title>
+    <script>
+      function updateStates() {
+        var countrySelect = document.getElementById("country");
+        var stateSelect = document.getElementById("state");
+
+        // Clear previous options
+        stateSelect.innerHTML = "";
+
+        // Add new options based on the selected country
+        var selectedCountry = countrySelect.value;
+        if (selectedCountry === "USA") {
+          var states = ["New York", "California", "Texas"];
+        } else if (selectedCountry === "Canada") {
+          var states = ["Ontario", "Quebec", "British Columbia"];
+        } else {
+          var states = [];
+        }
+
+        for (var i = 0; i < states.length; i++) {
+          var option = document.createElement("option");
+          option.value = states[i];
+          option.text = states[i];
+          stateSelect.add(option);
+        }
+      }
+
+      function updateCities() {
+        var stateSelect = document.getElementById("state");
+        var citySelect = document.getElementById("city");
+
+        // Clear previous options
+        citySelect.innerHTML = "";
+
+        // Add new options based on the selected state
+        var selectedState = stateSelect.value;
+        if (selectedState === "New York") {
+          var cities = ["New York City", "Buffalo", "Rochester"];
+        } else if (selectedState === "California") {
+          var cities = ["Los Angeles", "San Francisco", "San Diego"];
+        } else if (selectedState === "Texas") {
+          var cities = ["Houston", "Dallas", "Austin"];
+        } else {
+          var cities = [];
+        }
+
+        for (var i = 0; i < cities.length; i++) {
+          var option = document.createElement("option");
+          option.value = cities[i];
+          option.text = cities[i];
+          citySelect.add(option);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <label for="country">Country:</label>
+    <select id="country" onchange="updateStates()">
+      <option value="">Select Country</option>
+      <option value="USA">United States</option>
+      <option value="Canada">Canada</option>
+    </select>
+
+    <label for="state">State:</label>
+    <select id="state" onchange="updateCities()">
+      <option value="">Select State</option>
+    </select>
+
+    <label for="city">City:</label>
+    <select id="city">
+      <option value="">Select City</option>
+    </select>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Address</title>
+    <script>
+      function copyAdress() {
+        var Address1 = document.getElementById("add1").value;
+        document.getElementById("add2").value = Address1;
+      }
+    </script>
+  </head>
+  <body>
+    <label for="add1">Address1:</label>
+    <input type="text" id="add1" />
+    <br />
+    <input type="checkbox" id="sameAdress" onclick="copyAdress()" />
+    <label for="same">Address is same</label>
+    <br />
+    <label for="add2">Adress2:</label>
+    <input type="text" id="add2" />
+  </body>
+</html>
